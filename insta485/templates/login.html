@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>insta485</title>
+</head>
+<body>
+    <!-- Header: includes a logo and links to access different files -->
+    <div class="header">
+        <a href="/" id="logo"><img src="/static/images/insta_logo.svg" alt="instagram logo" height="50" width="50"></a>
+        <a href="/accounts/login/" id="explore">login</a>
+        <!-- above has id=explore just to use the css and position it on the far right -->
+    </div>
+
+    <!-- DO NOT CHANGE THIS (aside from styling) -->
+    <div class="center">
+        <form action="/accounts/?target=/" method="post" enctype="multipart/form-data">
+            <input type="text" name="username" required placeholder="username"/>
+            <br>
+            <br>
+            <input type="password" name="password" required placeholder="password"/>
+            <br>
+            <br>
+            <input type="submit" value="login"/>
+            <input type="hidden" name="operation" value="login"/>
+        </form>
+        <p>Don't have an account?<a href="/accounts/create/" id="create account link">&nbsp<b>Sign Up</b></a></p>
+    </div>
+</body>
+</html>

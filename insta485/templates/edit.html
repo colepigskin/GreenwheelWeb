@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>insta485</title>
+</head>
+<body>
+    <!-- Header: includes a logo and links to access different files -->
+    <div class="header">
+        <a href="/" id="logo"><img src="/static/images/insta_logo.svg" alt="instagram logo" height="50" width="50"></a>
+        <a href="/explore/" id="explore">explore</a>
+        <a href="{{ url_for("show_users", user=logname) }}" id="user">{{ logname }}</a>
+    </div>
+    <div class="edit-account">
+        <img src="{{ url_for("get_file", filename=user[0].filename) }}" alt="{{  user[0].username }}'s profile picture" height="60" width="60">
+        <b>{{user[0].username }}</b>
+        <br>
+        <form action="/accounts/?target=/accounts/edit/" method="post" enctype="multipart/form-data">
+            <p><b>Photo</b>&nbsp;<input type="file" name="file" accept="image/*"/></p>
+            <p><b>Name</b>&nbsp;<input type="text" name="fullname" value="{{ user[0].fullname }}" required/></p>
+            <p><b>Email</b>&nbsp;<input type="text" name="email" value="{{ user[0].email }}" required/></p>
+            <input type="submit" name="update" value="submit"/>
+            <input type="hidden" name="operation" value="edit_account"/>
+        </form>
+        <!--TODO: Need to change this URL to /accounts/password -->
+        <br>
+        <a href="{{ url_for("change_password") }}" id="password-change"><b>Change password</b></a>
+        <!--TODO: Need to change this URL to /accounts/delete -->
+        <br>
+        <br>
+        <a href="{{ url_for("account_delete") }}" id="delete-account"><b>Delete account</b></a>
+    </div>
+    
+</body>
+</html>
